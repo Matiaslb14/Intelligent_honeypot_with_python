@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Honeypot Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body{font-family:system-ui,Arial;margin:24px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  table{width:100%;border-collapse:collapse}
+  th,td{border-bottom:1px solid #ddd;padding:8px;text-align:left}
+  h1{margin-bottom:8px}
+  .card{padding:16px;border:1px solid #eee;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+  </style>
+</head>
+<body>
+  <h1>Honeypot Dashboard</h1>
+  <p>Últimas 24h · Top IPs · Tipos de ataque</p>
+  <div class="grid">
+    <div class="card">
+      <h3>Tipos de ataque</h3>
+      <canvas id="typesChart" height="200"></canvas>
+    </div>
+    <div class="card">
+      <h3>Eventos por hora</h3>
+      <canvas id="timeChart" height="200"></canvas>
+    </div>
+  </div>
+  <div class="card" style="margin-top:24px">
+    <h3>Top IPs</h3>
+    <table id="topips"><thead><tr><th>IP</th><th>País</th><th>Eventos</th></tr></thead><tbody></tbody></table>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+  async function loadData(){
+    const [types, times, top] = await Promise.all([
+      fetch('/api/stats').then(r=>r.json()),
+      fetch('/api/timeseries').then(r=>r.json()),
+      fetch('/api/top_ips').then(r=>r.json()),
+    ]);
+
+    new Chart(document.getElementById('typesChart').getContext('2d'), {
+      type: 'doughnut',
+      data: {
+        labels: types.labels, datasets: [{ data: types.counts }]
+      }
+    });
+
+    new Chart(document.getElementById('timeChart').getContext('2d'), {
+      type: 'line',
+      data: {
+        labels: times.labels, datasets: [{ label: 'Eventos', data: times.counts }]
+      }
+    });
+
+    const tbody = document.querySelector('#topips tbody');
+    tbody.innerHTML = '';
+    top.forEach(row=>{
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${row.ip}</td><td>${row.country || '-'}</td><td>${row.cnt}</td>`;
+      tbody.appendChild(tr);
+    });
+  }
+  loadData();
+  </script>
+</body>
+</html>
