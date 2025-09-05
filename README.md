@@ -75,8 +75,6 @@ python dashboard.py
 📊 Dashboard
 Visualize real-time stats (attack types, timeline, IPs).
 
-📸 Example
-(Include screenshots here)
 
 🛡️ Security Notes
 Run only inside an isolated VM with no sensitive data.
