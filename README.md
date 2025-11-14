@@ -61,14 +61,14 @@ Atacante → [22/80/21] → iptables → [2222/8080/2121] → honeypot.py → ev
 git clone https://github.com/Matiaslb14/09-honeypot-inteligente.git
 cd 09-honeypot-inteligente
 
-# Create virtual environment
+Create virtual environment
 python3 -m venv .venv
 source .venv/bin/activate
 
-# Install dependencies
+Install dependencies
 pip install -r requirements.txt
 
-# Initialize database
+Initialize database
 python db_init.py
 
 ▶️ Usage / Ejecución
@@ -103,28 +103,28 @@ sudo iptables -t nat -A OUTPUT -p tcp --dport 21 -j REDIRECT --to-ports 2121
 
 🧪 EN — Generate test traffic
 
-# HTTP
+HTTP
 curl -A "masscan" http://127.0.0.1/ -v
 
-# FTP
+FTP
 nc 127.0.0.1 21
 USER anonymous
 PASS test
 
-# SSH
+SSH
 ssh -p 22 127.0.0.1
 
 🧪 ES — Generar tráfico de prueba
 
-# HTTP
+HTTP
 curl -A "masscan" http://127.0.0.1/ -v
 
-# FTP
+FTP
 nc 127.0.0.1 21
 USER anonymous
 PASS test
 
-# SSH
+SSH
 ssh -p 22 127.0.0.1
 
 📄 Check events / Ver eventos
@@ -134,7 +134,7 @@ sqlite3 data/events.db "SELECT ts, ip, service, verdict, score FROM events ORDER
 🖥️ Dashboard
 
 python dashboard.py
-# http://127.0.0.1:5000
+http://127.0.0.1:5000
 
 📊 Dashboard / Visualización
 
