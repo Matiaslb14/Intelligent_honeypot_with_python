@@ -144,13 +144,22 @@ sqlite3 data/events.db "SELECT ts, ip, service, verdict, score FROM events ORDER
 python dashboard.py
 http://127.0.0.1:5000
 
-📊 Dashboard / Visualización
+## 📸 Screenshots / Capturas
 
-**EN:**
-Shows attack types, IP metrics, timeline and real-time events.
+### 🔍 Dashboard Overview / Vista General del Dashboard
+<p align="center">
+  <img src="./images/dashboard_overview.png" width="800">
+</p>
 
-**ES:**
-Muestra tipos de ataque, métricas por IP, línea de tiempo y eventos en tiempo real.
+### 🧪 SQLite Events View / Vista de Eventos en SQLite
+<p align="center">
+  <img src="./images/events_terminal_view.png" width="800">
+</p>
+
+### 🚀 Flask Server Running / Servidor Flask en Ejecución
+<p align="center">
+  <img src="./images/flask_server_running.png" width="800">
+</p>
 
 🛡️ Security Notes / Notas de Seguridad
 
