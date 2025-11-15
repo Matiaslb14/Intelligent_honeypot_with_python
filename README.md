@@ -84,21 +84,29 @@ python honeypot.py
 🔄 EN — Redirect real ports (external + local)
 
 sudo iptables -t nat -A PREROUTING -p tcp --dport 22 -j REDIRECT --to-ports 2222
+
 sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
+
 sudo iptables -t nat -A PREROUTING -p tcp --dport 21 -j REDIRECT --to-ports 2121
 
 sudo iptables -t nat -A OUTPUT -p tcp --dport 22 -j REDIRECT --to-ports 2222
+
 sudo iptables -t nat -A OUTPUT -p tcp --dport 80 -j REDIRECT --to-ports 8080
+
 sudo iptables -t nat -A OUTPUT -p tcp --dport 21 -j REDIRECT --to-ports 2121
 
 🔄 ES — Redirigir puertos reales (externo + local)
 
 sudo iptables -t nat -A PREROUTING -p tcp --dport 22 -j REDIRECT --to-ports 2222
+
 sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
+
 sudo iptables -t nat -A PREROUTING -p tcp --dport 21 -j REDIRECT --to-ports 2121
 
 sudo iptables -t nat -A OUTPUT -p tcp --dport 22 -j REDIRECT --to-ports 2222
+
 sudo iptables -t nat -A OUTPUT -p tcp --dport 80 -j REDIRECT --to-ports 8080
+
 sudo iptables -t nat -A OUTPUT -p tcp --dport 21 -j REDIRECT --to-ports 2121
 
 🧪 EN — Generate test traffic
