@@ -148,17 +148,17 @@ http://127.0.0.1:5000
 
 ### 🔍 Dashboard Overview / Vista General del Dashboard
 <p align="center">
-  <img src="./images/dashboard_overview.png" width="800">
+  <img src="./images/dashboard_overview.jpg" width="800">
 </p>
 
 ### 🧪 SQLite Events View / Vista de Eventos en SQLite
 <p align="center">
-  <img src="./images/events_terminal_view.png" width="800">
+  <img src="./images/events_terminal_view.jpg" width="800">
 </p>
 
 ### 🚀 Flask Server Running / Servidor Flask en Ejecución
 <p align="center">
-  <img src="./images/flask_server_running.png" width="800">
+  <img src="./images/flask_server_running.jpg" width="800">
 </p>
 
 🛡️ Security Notes / Notas de Seguridad
